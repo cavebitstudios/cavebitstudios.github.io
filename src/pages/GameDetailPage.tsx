@@ -1,0 +1,120 @@
+import { CheckCircle2, Monitor, Sparkle } from 'lucide-react'
+import { Navigate, useParams } from 'react-router-dom'
+import { CTAButton } from '../components/ui/CTAButton'
+import { ProjectImageSlideshow } from '../components/ui/ProjectImageSlideshow'
+import { ScrollReveal } from '../components/ui/ScrollReveal'
+import { SectionHeader } from '../components/ui/SectionHeader'
+import { TagList } from '../components/ui/TagList'
+import { findGameBySlug } from '../data/games'
+import { getProjectGalleryImages, getProjectTitleImage } from '../data/projectImages'
+import { getProjectThemeStyle } from '../data/projectTheme'
+
+export function GameDetailPage() {
+  const { slug } = useParams()
+  const game = findGameBySlug(slug)
+
+  if (!game) {
+    return <Navigate to="/games" replace />
+  }
+
+  const titleImage = getProjectTitleImage(game)
+  const galleryImages = getProjectGalleryImages(game)
+  const themeStyle = getProjectThemeStyle(game)
+
+  return (
+    <div className="game-detail-page project-theme" style={themeStyle}>
+      <ScrollReveal className="game-title-section section-shell">
+        <div className="game-title-card">
+          <div className="game-title-card__visual">
+            <div className={`game-title-card__screen${titleImage ? ' game-title-card__screen--image' : ''}`}>
+              {titleImage ? (
+                <img
+                  className="game-title-card__image"
+                  src={titleImage.src}
+                  alt={`${game.title} title image`}
+                  loading="eager"
+                  decoding="async"
+                />
+              ) : (
+                <>
+                  <Sparkle aria-hidden="true" />
+                  <span>{game.coverTone}</span>
+                </>
+              )}
+            </div>
+          </div>
+
+          <div className="game-title-card__copy">
+            <p className="eyebrow">{game.eyebrow}</p>
+            <h1>{game.title}</h1>
+            <p className="game-title-card__logline">{game.logline}</p>
+            <p>{game.description}</p>
+            <TagList tags={game.tags} />
+
+            <dl className="game-title-card__facts">
+              <div>
+                <dt>Status</dt>
+                <dd>{game.statusLabel}</dd>
+              </div>
+              <div>
+                <dt>Genre</dt>
+                <dd>{game.genre}</dd>
+              </div>
+              <div>
+                <dt>Release</dt>
+                <dd>{game.releaseWindow}</dd>
+              </div>
+            </dl>
+
+            <div className="game-hero__actions">
+              <CTAButton to={game.primaryActionTo}>{game.actionLabel}</CTAButton>
+              <CTAButton to={game.secondaryActionTo} variant="secondary">
+                {game.secondaryAction}
+              </CTAButton>
+            </div>
+          </div>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal className="section-shell project-gallery-section">
+        <div className="project-gallery-heading">
+          <p className="eyebrow">Gallery</p>
+          <h2>{galleryImages.length > 0 ? `${game.title} in action` : 'Images coming soon'}</h2>
+        </div>
+        <ProjectImageSlideshow images={galleryImages} fallbackItems={game.gallery} projectTitle={game.title} />
+      </ScrollReveal>
+
+      <ScrollReveal className="section-shell split-panel split-panel--reversed game-overview-section">
+        <div>
+          <SectionHeader eyebrow="Overview" title="Who is it for?" />
+          <p className="body-large">Designed for {game.audience}.</p>
+        </div>
+        <div className="info-card">
+          <div className="panel-icon" aria-hidden="true">
+            <Monitor />
+          </div>
+          <h3>Platforms</h3>
+          <ul>
+            {game.platforms.map((platform) => (
+              <li key={platform}>{platform}</li>
+            ))}
+          </ul>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal className="section-shell game-features-section">
+        <SectionHeader eyebrow="Gameplay" title="What to expect" />
+        <div className="feature-grid">
+          {game.features.map((feature) => (
+            <article className="feature-card" key={feature}>
+              <div className="panel-icon" aria-hidden="true">
+                <CheckCircle2 />
+              </div>
+              <p>{feature}</p>
+            </article>
+          ))}
+        </div>
+      </ScrollReveal>
+    </div>
+  )
+}
