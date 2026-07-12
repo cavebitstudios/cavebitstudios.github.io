@@ -5,14 +5,14 @@ import { siteConfig } from '../data/site'
 const contactRoutes = [
   {
     title: 'General',
-    body: 'Questions, collaboration, and project inquiries.',
+    body: 'Main email to get in touch for business-related topics.',
     action: siteConfig.generalEmail,
     href: `mailto:${siteConfig.generalEmail}`,
     icon: Mail,
   },
   {
-    title: 'Press',
-    body: 'Coverage, interviews, and asset requests.',
+    title: 'Personal',
+    body: 'My non-professional personal contact for getting in touch.',
     action: siteConfig.pressEmail,
     href: `mailto:${siteConfig.pressEmail}`,
     icon: Send,
