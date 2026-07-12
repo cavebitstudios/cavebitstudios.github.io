@@ -4,8 +4,8 @@ export const siteConfig = {
   studioTagline: 'Building games bit-by-bit.',
   primaryGameAction: 'View project',
   secondaryGameAction: 'All games',
-  generalEmail: 'cavebitstudios@gmail.com',
-  pressEmail: 'caffeinecavern@gmail.com',
+  generalEmail: 'caffeinecavern@gmail.com',
+  pressEmail: 'cavebitstudios@gmail.com',
   githubLabel: 'CaveBit Studios on GitHub',
   githubUrl: 'https://github.com/cavebitstudios',
 } as const

@@ -6,15 +6,15 @@ const contactRoutes = [
   {
     title: 'General',
     body: 'Main email to get in touch for business-related topics.',
-    action: siteConfig.generalEmail,
-    href: `mailto:${siteConfig.generalEmail}`,
+    action: siteConfig.pressEmail,
+    href: `mailto:${siteConfig.pressEmail}`,
     icon: Mail,
   },
   {
     title: 'Personal',
     body: 'My non-professional personal contact for getting in touch.',
-    action: siteConfig.pressEmail,
-    href: `mailto:${siteConfig.pressEmail}`,
+    action: siteConfig.generalEmail,
+    href: `mailto:${siteConfig.generalEmail}`,
     icon: Send,
   },
   {
