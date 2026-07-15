@@ -1,29 +1,53 @@
-import { GitBranch, Mail, Send } from 'lucide-react'
+import { Video, Mail, MailPlus, SpeechIcon, Camera, GitBranch } from 'lucide-react'
 import { ScrollReveal } from '../components/ui/ScrollReveal'
 import { siteConfig } from '../data/site'
 
 const contactRoutes = [
   {
-    title: 'General',
+    title: 'Discord',
+    body: 'Join CaveBit Studios Discord Server.',
+    action: siteConfig.discordLabel,
+    href: siteConfig.discordUrl,
+    icon: SpeechIcon,
+    external: true,
+  },
+  {
+    title: 'Instagram',
+    body: 'Follow CaveBit Studios on Instagram.',
+    action: "@cavebitstudios on Instagram",
+    href: 'https://www.instagram.com/cavebitstudios',
+    icon: Camera,
+    external: true,
+  },
+  {
+    title: 'YouTube',
+    body: 'Visit CaveBit Studios on YouTube.',
+    action: '@CaveBitStudiosYT',
+    href: 'https://www.youtube.com/@CaveBitStudiosYT',
+    icon: Video,
+    external: true,
+  },
+  {
+    title: 'GitHub',
+    body: 'My GitHub page for public project repositories.',
+    action: siteConfig.githubLabel,
+    href: siteConfig.githubUrl,
+    icon: GitBranch,
+    external: true,
+  },
+  {
+    title: 'Email',
     body: 'Main email to get in touch for business-related topics.',
     action: siteConfig.pressEmail,
     href: `mailto:${siteConfig.pressEmail}`,
     icon: Mail,
   },
   {
-    title: 'Personal',
-    body: 'My non-professional personal contact for getting in touch.',
+    title: 'Personal Email',
+    body: 'My personal email to get in touch for general topics.',
     action: siteConfig.generalEmail,
     href: `mailto:${siteConfig.generalEmail}`,
-    icon: Send,
-  },
-  {
-    title: 'GitHub',
-    body: 'Public development work and repositories.',
-    action: siteConfig.githubLabel,
-    href: siteConfig.githubUrl,
-    icon: GitBranch,
-    external: true,
+    icon: MailPlus,
   },
 ]
 
@@ -32,7 +56,6 @@ export function ContactPage() {
     <ScrollReveal className="page-hero page-hero--with-content section-shell contact-page" id="contact">
       <p className="eyebrow">Contact</p>
       <h1>Get in touch</h1>
-      <p>Email is the best way to reach CaveBit Studios.</p>
 
       <div className="asset-grid contact-grid page-hero__content">
         {contactRoutes.map((route) => {
