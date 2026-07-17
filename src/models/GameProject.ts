@@ -61,7 +61,39 @@ export class GameProject {
   readonly titleImage: string
   readonly galleryImages: string[]
 
-  constructor(input: GameProjectInput) {
+  constructor(input: {
+    audience: string;
+    featured: boolean;
+    primaryAction: string;
+    eyebrow: string;
+    releaseWindow: string;
+    primaryActionTo: string;
+    description: string;
+    coverTone: string;
+    title: string;
+    secondaryActionTo: string;
+    platforms: string[];
+    tags: string[];
+    assetFolder: string;
+    titleImage: string;
+    logline: string;
+    features: string[];
+    genre: string;
+    secondaryAction: string;
+    theme: {
+      line: string;
+      accentSoft: string;
+      name: string;
+      accentDark: string;
+      panel: string;
+      accent: string;
+      glow: string
+    };
+    slug: string;
+    gallery: string[];
+    status: ProjectStatus;
+    galleryImages: []
+  }) {
     this.slug = input.slug
     this.title = input.title
     this.eyebrow = input.eyebrow

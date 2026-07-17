@@ -5,7 +5,7 @@ export const games = [
   new GameProject({
     slug: 'glyphrune',
     title: 'Glyphrune',
-    eyebrow: 'In development',
+    eyebrow: 'Add to Wishlist',
     status: 'in-development',
     genre: 'Strategy',
     audience: 'players who enjoy light tabletop RPG systems',
@@ -35,10 +35,10 @@ export const games = [
       'Play each battle at your own pace.',
     ],
     gallery: ['Battle scene'],
-    primaryAction: 'Project updates',
-    secondaryAction: 'Press kit',
-    primaryActionTo: '/updates',
-    secondaryActionTo: '/press',
+    primaryAction: 'Visit on Steam',
+    secondaryAction: 'Project updates',
+    primaryActionTo: 'https://store.steampowered.com/app/4957150/Glyphrune',
+    secondaryActionTo: '/updates',
     featured: true,
   }),
 ]

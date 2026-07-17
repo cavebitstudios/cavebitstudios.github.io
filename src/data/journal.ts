@@ -1,7 +1,7 @@
 import { JournalEntry } from '../models/JournalEntry'
 
 export const journalEntries = [
-  new JournalEntry({
+    new JournalEntry({
     slug: 'project-glyphrune',
     title: 'Project Glyphrune',
     date: '2026',
@@ -92,7 +92,7 @@ export const journalEntries = [
       },
     ],
   }),
-  new JournalEntry({
+    new JournalEntry({
     slug: 'site-open',
     title: 'Site Open',
     date: '2026',
