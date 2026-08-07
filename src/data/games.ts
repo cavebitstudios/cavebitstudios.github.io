@@ -5,8 +5,8 @@ export const games = [
   new GameProject({
     slug: 'glyphrune',
     title: 'Glyphrune',
-    eyebrow: 'Add to Wishlist',
-    status: 'in-development',
+    eyebrow: 'Play Now on Steam!',
+    status: 'released',
     genre: 'Strategy',
     audience: 'players who enjoy light tabletop RPG systems',
     logline: 'Choose the road ahead.',
@@ -25,7 +25,7 @@ export const games = [
     assetFolder: 'glyphrune',
     titleImage: 'glyphrune.png',
     galleryImages: [],
-    releaseWindow: 'TBA',
+    releaseWindow: '8/7/2026',
     platforms: ['PC', 'Console planned', 'Mobile planned', 'Steam'],
     tags: ['Cards', 'RPG', 'Battle', 'Single-player'],
     features: [
