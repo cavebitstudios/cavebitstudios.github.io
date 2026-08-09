@@ -1,7 +1,115 @@
 import { JournalEntry } from '../models/JournalEntry'
 
 export const journalEntries = [
-    new JournalEntry({
+  new JournalEntry({
+    slug: 'project-astromacy',
+    title: 'Project Astromacy',
+    date: '2026',
+    category: 'Project',
+    excerpt: 'A 3D space-exploration sandbox where every choice matters.',
+    readTime: '5 min',
+    sections: [
+      {
+        heading: 'Where It Started',
+        paragraphs: [
+          'Astromacy began with the idea of making a space game where exploration was the main reason to keep playing.',
+          'I wanted the player to be able to travel between planets, land somewhere unfamiliar, leave their ship, explore, and make an impact.',
+          'The scale of space gave me a lot of room to experiment with that idea. I became interested in what the player could actually do after reaching a new planet and how the environment around them could become part of the experience.',
+          'I wanted the environment itself to create gameplay.',
+          'Astromacy became a 3D exploration sandbox built around travelling, discovering locations, interacting with planetary systems, finding wildlife, completing activities, and deciding what is worth investigating.',
+        ],
+      },
+      {
+        heading: 'Exploring the Frontier',
+        paragraphs: [
+          'The heart of Astromacy is exploration.',
+          'You travel through space, choose where to go, land on different planets, and explore their surfaces. Once you leave the ship, the game opens up and gives you room to understand the place you have landed in.',
+          'You can find locations, unusual terrain, wildlife, environmental hazards, resources, and activities while moving through the world.',
+          'Not everything needs to be part of a mission.',
+          'You may begin travelling toward one location and notice something else along the way. A strange creature, a body of water, an unusual landscape, or an unexplored structure can give you a reason to change direction.',
+          'I want curiosity to be part of the gameplay and give the player a reason to explore beyond their original destination.',
+        ],
+      },
+      {
+        heading: 'Making Planets Feel Alive',
+        paragraphs: [
+          'One of the biggest goals for Astromacy is making each planet feel like a place with its own identity.',
+          'Different parts of a planet can contain their own terrain, fluids, wildlife, hazards, sites, and activities. These systems are designed to interact and influence what happens while you explore.',
+          'Water is more than a visual surface. It can affect movement, create buoyancy, apply drag, contain currents, and support wildlife that would not appear on land.',
+          'Lava can behave differently again. It can be dangerous to the player while still supporting creatures that are adapted to live inside or around it.',
+          'Ground wildlife, water wildlife, and lava wildlife are treated as different habitats, allowing creatures to appear in environments that make sense for them.',
+          'That means seeing something alive can also tell you something about the environment around it.',
+        ],
+      },
+      {
+        heading: 'The Open Frontier',
+        paragraphs: [
+          'The Open Frontier is the more open-ended sandbox side of Astromacy.',
+          'It is where I am focusing on creating gameplay through planetary conditions, activities, locations, wildlife, resources, and environmental systems working together.',
+          'An activity might send you toward a particular location, but the journey there can still involve other parts of the planet.',
+          'You may cross dangerous terrain, move through water, find wildlife in a nearby habitat, discover another site, or decide that something you noticed along the way is more interesting than where you originally planned to go.',
+          'I want activities to give the player direction while still leaving room for the surrounding world to become part of the experience.',
+          'The Open Frontier is about having a ship, having a universe to travel through, and deciding what you want to do with it.',
+        ],
+      },
+      {
+        heading: 'Avalon Expedition',
+        paragraphs: [
+          'Astromacy also has a story mode called Avalon Expedition.',
+          'The story begins after humanity is forced to evacuate Earth and rebuild on a new world called Avalon. Generations later, humanity is ready to travel into space again, and you play as the Captain of the Starling alongside your crewmate Jay.',
+          "'What begins as a routine expedition quickly changes after an unusual discovery. It starts a larger journey across different worlds and civilizations to help piece together humanity's forgotten history.'",
+          'Avalon Expedition still uses the exploration systems that Astromacy is built around. You travel between planets, leave the Starling, investigate environments, meet different species, complete assignments, and make decisions as the story develops.',
+          'Your choices can also affect relationships and the direction of events. Jay, your friend and crewmate, remembers how you behave. Different civilizations have their own interests, and decisions made earlier in the expedition can matter later.',
+          'Depending on how a part of the story is shaped, it can be a more focused story-telling experience or become fully explorable. Some moments can lead the player through an important event, while others can give them a planet or area and allow them to explore it more freely.',
+          'I want Avalon Expedition to give Astromacy a central story without separating that story from the exploration that the rest of the game is built around.',
+        ],
+      },
+      {
+        heading: 'Keeping It Data-Driven',
+        paragraphs: [
+          'One of the most important technical goals for Astromacy is keeping the project entirely data-driven.',
+          'I want new planets, activities, species, locations, story content, and environmental effects to use reusable systems wherever possible.',
+          'Instead of programming each piece of content individually, I want to define what something is and let the existing systems decide how it behaves.',
+          'That makes the project easier to expand and easier to maintain.',
+          'It also means the Open Frontier and Avalon Expedition do not need to be completely separated. Story content can use the same planets, environments, wildlife, activities, and interaction systems as the rest of the game.',
+          'The more Astromacy grows, the more important that becomes.',
+        ],
+      },
+      {
+        heading: 'What the Player Actually Does',
+        paragraphs: [
+          'Astromacy is built around small decisions made during a much larger journey.',
+          'You decide where to travel, where to land, what to investigate, which locations are worth visiting, and how far you want to move away from the safety of your ship.',
+          'In the Open Frontier, those decisions can be largely your own. In Avalon Expedition, they can also become part of a larger story.',
+          'You may have to decide whether to cross dangerous terrain, enter water, approach unfamiliar wildlife, continue toward an activity, investigate something unexpected, or respond to a situation involving another person or civilization.',
+          'I want those decisions to give the player reasons to pay attention to the world around them.',
+          'Sometimes the most interesting part of exploration is not knowing exactly what you are going to find until you go there.',
+        ],
+      },
+      {
+        heading: 'What Comes Next',
+        paragraphs: [
+          'My current development work is focused on making both exploration and the content inside it more interesting to actually play.',
+          'That means adding more activities, more environmental interactions, more wildlife behaviors, more places to discover, and more situations where several systems can affect the player at the same time.',
+          'I also want to continue developing Avalon Expedition and finding the right balance between directed story moments and areas where the player is free to explore.',
+          'The long-term goal is to have enough interacting systems that travelling somewhere new can create interesting situations without every moment needing to be scripted individually.',
+          'I still want authored stories and designed locations, but I also want the journey between those moments to matter.',
+        ],
+      },
+      {
+        heading: 'The Game I Want to Make',
+        paragraphs: [
+          'Astromacy is a space game, and I want its scale to be supported by the things the player can find and do within it.',
+          'I want the planets to feel worth landing on, the wildlife to feel like it belongs where it appears, the story to give the universe meaning, and the environmental systems to have a reason to exist beyond making the world look different.',
+          'I want travelling somewhere new to create questions.',
+          'What is here? What lives here? What can I find? What can I do? How can I progress?',
+          'The Open Frontier gives the player the freedom to find their own answers. Avalon Expedition gives those same systems a larger journey to be part of.',
+          'More than anything, I want Astromacy to be fun to explore.',
+        ],
+      },
+    ],
+  }),
+  new JournalEntry({
     slug: 'project-glyphrune',
     title: 'Project Glyphrune',
     date: '2026',
@@ -92,7 +200,7 @@ export const journalEntries = [
       },
     ],
   }),
-    new JournalEntry({
+  new JournalEntry({
     slug: 'site-open',
     title: 'Site Open',
     date: '2026',
