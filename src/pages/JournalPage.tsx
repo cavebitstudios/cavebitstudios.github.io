@@ -1,6 +1,6 @@
 import { JournalCard } from '../components/ui/JournalCard'
 import { ScrollReveal } from '../components/ui/ScrollReveal'
-import { journalEntries } from '../data/journal'
+import {journalEntries} from '../data/journal'
 
 export function JournalPage() {
   return (
@@ -11,7 +11,7 @@ export function JournalPage() {
 
       <div className="journal-list page-hero__content">
         {journalEntries.map((entry) => (
-          <JournalCard key={entry.slug} entry={entry} />
+            <JournalCard key={entry.slug} entry={entry} />
         ))}
       </div>
     </ScrollReveal>

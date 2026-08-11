@@ -5,10 +5,10 @@
   font-synthesis: none;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
-  --bg: #05030b;
-  --bg-elevated: #0d0920;
-  --bg-panel: rgba(18, 12, 38, 0.78);
-  --panel-solid: #140f2a;
+  --bg: #473585;
+  --bg-elevated: #2f2465;
+  --bg-panel: rgba(35, 24, 70, 0.78);
+  --panel-solid: #261e4b;
   --text: #f7f0ff;
   --muted: #c8b7df;
   --subtle: #907aa9;
@@ -42,7 +42,7 @@ body {
   background:
     radial-gradient(circle at 15% 5%, rgba(78, 48, 130, 0.18), transparent 34rem),
     radial-gradient(circle at 85% 8%, rgba(169, 116, 255, 0.24), transparent 36rem),
-    linear-gradient(180deg, #06030e 0%, #080512 46%, #030208 100%);
+    linear-gradient(180deg, #100925 0%, #170f31 46%, #0e0a23 100%);
   color: var(--text);
 }
 
@@ -1310,6 +1310,7 @@ dd {
 .project-theme {
   --bit: var(--project-accent, #7cf7ff);
   --violet-soft: var(--project-accent-soft, #d5b7ff);
+  --bg-panel: var(--project-panel, rgba(18, 12, 38, 0.78));
   --line: var(--project-line, rgba(210, 186, 255, 0.18));
   --line-strong: var(--project-line, rgba(210, 186, 255, 0.32));
 }
@@ -2723,23 +2724,12 @@ main > *:last-child:not(.game-detail-page) {
   z-index: -1;
   border-radius: 42% 58% 54% 46% / 48% 42% 58% 52%;
   background:
-    radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--bit) 18%, transparent), transparent 36%),
-    radial-gradient(ellipse at center, rgba(124, 91, 190, 0.32), transparent 68%);
+    radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--violet-soft) 16%, transparent), transparent 36%),
+    radial-gradient(ellipse at center, color-mix(in srgb, var(--violet) 28%, transparent), transparent 68%);
   filter: blur(24px);
   animation: portalPulse 7s ease-in-out infinite;
 }
 
-.studio-logo-showcase__fireglow {
-  position: absolute;
-  inset: 7%;
-  z-index: -1;
-  border-radius: 42% 58% 54% 46% / 48% 42% 58% 52%;
-  background:
-          radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--bit) 18%, transparent), transparent 36%),
-          radial-gradient(ellipse at center, rgba(255, 88, 37, 0.32), transparent 68%);
-  filter: blur(24px);
-  animation: portalPulse 7s ease-in-out infinite;
-}
 
 .studio-logo-showcase img {
   width: min(92%, 320px);
@@ -4021,6 +4011,12 @@ main > *:last-child:not(.game-detail-page) {
 }
 
 /* About page title logo placement */
+.page-hero--studio .eyebrow,
+.studio-intro-panel .eyebrow,
+.studio-values-section .eyebrow {
+  color: var(--text);
+}
+
 .page-hero--studio {
   display: flex;
   grid-template-columns: none;

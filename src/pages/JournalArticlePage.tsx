@@ -1,8 +1,9 @@
 import { ArrowLeft } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { ScrollReveal } from '../components/ui/ScrollReveal'
-import { findJournalEntryBySlug } from '../data/journal'
+import {findGameProject, findJournalEntryBySlug} from '../data/journal'
 import { NotFoundPage } from './NotFoundPage'
+import {getProjectThemeStyle} from "../data/projectTheme.ts";
 
 export function JournalArticlePage() {
   const { slug } = useParams<{ slug: string }>()
@@ -12,8 +13,14 @@ export function JournalArticlePage() {
     return <NotFoundPage />
   }
 
+  const focusedProj = findGameProject(entry.focused_project)
+  const themeStyle = getProjectThemeStyle(focusedProj)
+
   return (
-    <div className="journal-article-page">
+    <div
+      className={focusedProj ? 'journal-article-page project-theme' : 'journal-article-page'}
+      style={themeStyle}
+    >
       <header className="journal-article-hero section-shell">
         <Link className="journal-article__back" to="/updates">
           <ArrowLeft aria-hidden="true" size={18} />

@@ -17,8 +17,8 @@ export function StudioPage() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <span className="studio-logo-showcase__fireglow" />
-            <img src="/cavebit_studios_logo_fire.png" alt="" />
+            <span className="studio-logo-showcase__glow" />
+            <img src="/cavebit_studios_logo_tsp.png" alt="" />
           </motion.div>
           <p>Building a collection of memorable games with strong atmospheres.</p>
         </div>

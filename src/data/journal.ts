@@ -1,4 +1,5 @@
 import { JournalEntry } from '../models/JournalEntry'
+import { findGameBySlug } from "./games.ts";
 
 export const journalEntries = [
   new JournalEntry({
@@ -6,6 +7,7 @@ export const journalEntries = [
     title: 'Project Astromacy',
     date: '2026',
     category: 'Project',
+    focused_project: 'astromacy',
     excerpt: 'A 3D space-exploration sandbox where every choice matters.',
     readTime: '5 min',
     sections: [
@@ -114,6 +116,7 @@ export const journalEntries = [
     title: 'Project Glyphrune',
     date: '2026',
     category: 'Project',
+    focused_project: 'glyphrune',
     excerpt: 'A Solo Tabletop RPG game made using Godot Engine.',
     readTime: '5 min',
     sections: [
@@ -205,6 +208,7 @@ export const journalEntries = [
     title: 'Site Open',
     date: '2026',
     category: 'Studio',
+    focused_project: undefined,
     excerpt: 'A home for CaveBit Studios projects and updates.',
     readTime: '1 min',
     sections: [
@@ -230,4 +234,8 @@ export const journalEntries = [
 
 export function findJournalEntryBySlug(slug?: string) {
   return journalEntries.find((entry) => entry.slug === slug)
+}
+
+export function findGameProject(game_project?: string) {
+  return findGameBySlug(game_project)
 }

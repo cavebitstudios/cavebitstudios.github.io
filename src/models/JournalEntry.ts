@@ -8,6 +8,7 @@ export type JournalEntryInput = {
   title: string
   date: string
   category: string
+  focused_project: string | undefined
   excerpt: string
   readTime: string
   sections?: JournalSection[]
@@ -18,6 +19,7 @@ export class JournalEntry {
   readonly title: string
   readonly date: string
   readonly category: string
+  readonly focused_project: string | undefined
   readonly excerpt: string
   readonly readTime: string
   readonly sections: JournalSection[]
@@ -27,6 +29,7 @@ export class JournalEntry {
     this.title = input.title
     this.date = input.date
     this.category = input.category
+    this.focused_project = input.focused_project
     this.excerpt = input.excerpt
     this.readTime = input.readTime
     this.sections = input.sections ?? []

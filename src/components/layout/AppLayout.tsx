@@ -2,24 +2,43 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { AmbientPixels } from '../sections/AmbientPixels'
 import { findGameBySlug, focusedGame } from '../../data/games'
+import { findJournalEntryBySlug } from '../../data/journal'
 import { getProjectThemeStyle } from '../../data/projectTheme'
+import type { GameProject } from '../../models/GameProject'
 import { SiteFooter } from './SiteFooter'
 import { SiteHeader } from './SiteHeader'
 
-function getRouteProjectSlug(pathname: string) {
-  const match = pathname.match(/^\/games\/([^/]+)/)
+function getPageProject(pathname: string): GameProject | undefined {
+  if (pathname === '/' || pathname === '/games' || pathname === '/press') {
+    return focusedGame
+  }
 
-  return match?.[1]
+  const [section, slug, extra] = pathname.split('/').filter(Boolean)
+
+  if (extra) return undefined
+
+  if (section === 'games' && slug) {
+    return findGameBySlug(slug)
+  }
+
+  if (section === 'updates' && slug) {
+    const entry = findJournalEntryBySlug(slug)
+    return entry?.focused_project ? findGameBySlug(entry.focused_project) : undefined
+  }
+
+  return undefined
 }
 
 export function AppLayout() {
   const location = useLocation()
   const reduceMotion = useReducedMotion()
-  const routeProject = findGameBySlug(getRouteProjectSlug(location.pathname))
-  const activeProject = routeProject ?? focusedGame
+  const pageProject = getPageProject(location.pathname)
 
   return (
-    <div className="app-shell app-shell--project project-theme" style={getProjectThemeStyle(activeProject)}>
+    <div
+      className={pageProject ? 'app-shell app-shell--project project-theme' : 'app-shell'}
+      style={getProjectThemeStyle(pageProject)}
+    >
       <AmbientPixels />
       <SiteHeader />
       <AnimatePresence mode="wait">

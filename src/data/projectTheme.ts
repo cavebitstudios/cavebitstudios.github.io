@@ -10,7 +10,9 @@ type ProjectThemeProperties = CSSProperties & {
   '--project-glow': string
 }
 
-export function getProjectThemeStyle(game: GameProject): ProjectThemeProperties {
+export function getProjectThemeStyle(game?: GameProject): ProjectThemeProperties | undefined {
+  if (!game) return undefined
+
   return {
     '--project-accent': game.theme.accent,
     '--project-accent-soft': game.theme.accentSoft,
