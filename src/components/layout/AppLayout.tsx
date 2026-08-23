@@ -1,4 +1,5 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
+import { useLayoutEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { AmbientPixels } from '../sections/AmbientPixels'
 import { findGameBySlug, focusedGame } from '../../data/games'
@@ -33,6 +34,24 @@ export function AppLayout() {
   const location = useLocation()
   const reduceMotion = useReducedMotion()
   const pageProject = getPageProject(location.pathname)
+
+  useLayoutEffect(() => {
+    const root = document.documentElement
+    const themeColor = pageProject?.theme.accentDark ?? '#100925'
+    const themeColorMeta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
+
+    root.style.setProperty('--viewport-bg', themeColor)
+    if (themeColorMeta) {
+      themeColorMeta.content = themeColor
+    }
+
+    return () => {
+      root.style.removeProperty('--viewport-bg')
+      if (themeColorMeta) {
+        themeColorMeta.content = '#100925'
+      }
+    }
+  }, [pageProject])
 
   return (
     <div
