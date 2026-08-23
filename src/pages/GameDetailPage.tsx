@@ -5,6 +5,7 @@ import { ProjectImageSlideshow } from '../components/ui/ProjectImageSlideshow'
 import { ScrollReveal } from '../components/ui/ScrollReveal'
 import { SectionHeader } from '../components/ui/SectionHeader'
 import { TagList } from '../components/ui/TagList'
+import { YouTubeEmbed } from '../components/ui/YouTubeEmbed'
 import { findGameBySlug } from '../data/games'
 import { getProjectGalleryImages, getProjectTitleImage } from '../data/projectImages'
 import { getProjectThemeStyle } from '../data/projectTheme'
@@ -76,10 +77,20 @@ export function GameDetailPage() {
         </div>
       </ScrollReveal>
 
+      {game.youtubeVideoId ? (
+        <ScrollReveal className="section-shell project-video-section">
+          <div className="project-gallery-heading">
+            <p className="eyebrow">Trailer</p>
+            <h2>{game.title} in Action</h2>
+          </div>
+          <YouTubeEmbed videoId={game.youtubeVideoId} title={`${game.title} trailer`} />
+        </ScrollReveal>
+      ) : null}
+
       <ScrollReveal className="section-shell project-gallery-section">
         <div className="project-gallery-heading">
           <p className="eyebrow">Gallery</p>
-          <h2>{galleryImages.length > 0 ? `${game.title} in action` : 'Images coming soon'}</h2>
+          <h2>{galleryImages.length > 0 ? `${game.title} Image Gallery` : 'Images coming soon'}</h2>
         </div>
         <ProjectImageSlideshow images={galleryImages} fallbackItems={game.gallery} projectTitle={game.title} />
       </ScrollReveal>

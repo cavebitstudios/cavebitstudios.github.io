@@ -1,6 +1,7 @@
 import { ArrowLeft } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { ScrollReveal } from '../components/ui/ScrollReveal'
+import { YouTubeEmbed } from '../components/ui/YouTubeEmbed'
 import {findGameProject, findJournalEntryBySlug} from '../data/journal'
 import { NotFoundPage } from './NotFoundPage'
 import {getProjectThemeStyle} from "../data/projectTheme.ts";
@@ -34,6 +35,15 @@ export function JournalArticlePage() {
         <p className="journal-article__intro">{entry.excerpt}</p>
       </header>
 
+      {entry.youtubeVideoId ? (
+        <ScrollReveal className="journal-article-video section-shell">
+          <YouTubeEmbed
+            videoId={entry.youtubeVideoId}
+            title={`${entry.title} video`}
+          />
+        </ScrollReveal>
+      ) : null}
+
       {entry.sections.length > 0 ? (
         <article
           aria-label={`${entry.title} article`}
@@ -46,6 +56,13 @@ export function JournalArticlePage() {
               key={`${entry.slug}-section-${sectionIndex}`}
             >
               {section.heading ? <h2>{section.heading}</h2> : null}
+              {section.youtubeVideoId ? (
+                <YouTubeEmbed
+                  className="journal-article-section__video"
+                  videoId={section.youtubeVideoId}
+                  title={`${entry.title}${section.heading ? ` - ${section.heading}` : ''} video`}
+                />
+              ) : null}
               <div className="journal-article-section__copy">
                 {section.paragraphs.map((paragraph, paragraphIndex) => (
                   <p key={`${entry.slug}-paragraph-${sectionIndex}-${paragraphIndex}`}>

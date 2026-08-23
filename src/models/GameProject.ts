@@ -34,6 +34,7 @@ export type GameProjectInput = {
   assetFolder?: string
   titleImage?: string
   galleryImages?: string[]
+  youtubeVideoId?: string
 }
 
 export class GameProject {
@@ -60,6 +61,7 @@ export class GameProject {
   readonly assetFolder: string
   readonly titleImage: string
   readonly galleryImages: string[]
+  readonly youtubeVideoId: string | undefined
 
   constructor(input: {
     audience: string;
@@ -92,7 +94,8 @@ export class GameProject {
     slug: string;
     gallery: string[];
     status: ProjectStatus;
-    galleryImages: []
+    galleryImages: [];
+    youtubeVideoId?: string;
   }) {
     this.slug = input.slug
     this.title = input.title
@@ -117,6 +120,7 @@ export class GameProject {
     this.assetFolder = input.assetFolder ?? this.slug.replace(/^project-/, '')
     this.titleImage = input.titleImage ?? `${this.assetFolder}.png`
     this.galleryImages = input.galleryImages ?? []
+    this.youtubeVideoId = input.youtubeVideoId
   }
 
   get statusLabel() {

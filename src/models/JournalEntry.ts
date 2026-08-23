@@ -1,6 +1,7 @@
 export type JournalSection = {
   heading?: string
   paragraphs: string[]
+  youtubeVideoId?: string
 }
 
 export type JournalEntryInput = {
@@ -11,6 +12,7 @@ export type JournalEntryInput = {
   focused_project: string | undefined
   excerpt: string
   readTime: string
+  youtubeVideoId?: string
   sections?: JournalSection[]
 }
 
@@ -22,6 +24,7 @@ export class JournalEntry {
   readonly focused_project: string | undefined
   readonly excerpt: string
   readonly readTime: string
+  readonly youtubeVideoId: string | undefined
   readonly sections: JournalSection[]
 
   constructor(input: JournalEntryInput) {
@@ -32,6 +35,7 @@ export class JournalEntry {
     this.focused_project = input.focused_project
     this.excerpt = input.excerpt
     this.readTime = input.readTime
+    this.youtubeVideoId = input.youtubeVideoId
     this.sections = input.sections ?? []
   }
 

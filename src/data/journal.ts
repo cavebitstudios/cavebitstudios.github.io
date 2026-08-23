@@ -2,7 +2,107 @@ import { JournalEntry } from '../models/JournalEntry'
 import { findGameBySlug } from "./games.ts";
 
 export const journalEntries = [
-  new JournalEntry({
+    new JournalEntry({
+      slug: 'glyphrune-major-update',
+      title: 'Major Update Announcement!',
+      date: '2026',
+      category: 'Glyphrune',
+      focused_project: 'glyphrune',
+      excerpt: 'A major game-changing update to Glyphrune! Version 1.0.0 is here!',
+      readTime: '5 min',
+      sections: [
+        {
+          heading: 'A Much Bigger Update',
+          paragraphs: [
+            'Glyphrune has received its first major update.',
+            'I originally released the game earlier than I should have. The main idea was there, but there were parts of the game that needed more time, more clarity, and more depth.',
+            'Since then, I have spent a lot of time working through player feedback and looking at the game as a whole.',
+            'I did not want to make a few small changes and call it finished.',
+            'This update changes how the world is explored, how battles flow, how the player grows stronger, and how information is presented throughout a run.',
+            'Glyphrune is still the same game at its core, but it is much closer to the game I wanted to release.',
+          ],
+        },
+        {
+          heading: 'Rebuilding the Journey',
+          paragraphs: [
+            'One of the biggest changes is how travelling through the world works.',
+            'The world map has been expanded into a 3D map with different regions, roads, and routes to choose from. Instead of simply moving forward through encounters, the player has more control over where they go and what risks they take.',
+            'Routes can contain standard battles, stronger enemies, rest stops, Ally Trials, rewards, and other opportunities.',
+            'The camera and transitions have also been reworked so moving between the world map, routes, and battles feels more connected.',
+            'Progress through a route is now saved, so closing the game does not mean losing where you were in an expedition.',
+            'I wanted travelling to feel like part of the game instead of something that only happens between battles.',
+          ],
+        },
+        {
+          heading: 'Making Battles Easier to Understand',
+          paragraphs: [
+            'Combat received a lot of attention in this update.',
+            'One of the most important pieces of feedback was that the player needed better information about what was happening during a battle.',
+            'Health, block, energy, damage, and status effects are now easier to read. Effects such as Weak, Vulnerable, Strength, Poison, and Shield have clearer visual feedback, and lasting effects are separated from temporary ones.',
+            'Enemy behaviour has also been improved. Enemies use their own hands, choose legal combinations of cards, and make decisions based on the current battle.',
+            'Turn order is more consistent between battles, and enemy-first encounters have been adjusted so they are less likely to begin with an unfair amount of damage.',
+            'The goal was not to remove uncertainty. I still want the player to think about risk. I just want that risk to come from the decisions being made instead of information being difficult to understand.',
+          ],
+        },
+        {
+          heading: 'Allies',
+          paragraphs: [
+            'Allies are another major addition to Glyphrune.',
+            'The player can now find and recruit Allies while travelling through different regions. Only one can be active at a time, and each one is designed to change how a run is played instead of simply increasing a number.',
+            'Some Allies are creatures tied to particular regions, including the Wolf, Goblin, Troll, Golem, and Dragon.',
+            'There are also class-based Allies with their own combat abilities and restrictions.',
+            'Finding an Ally can require taking a more dangerous road through an Ally Trial, so gaining one is not always the safest choice.',
+            'I wanted Allies to give the player another reason to think about the route they are taking and what kind of strategy they are building.',
+          ],
+        },
+        {
+          heading: 'Glyphs and Runes',
+          paragraphs: [
+            'The update also introduces the Glyph and Rune systems.',
+            'Glyphs are rare symbols that can be discovered during a run. Finding one adds it to the Glyph Glossary, but discovering its name does not immediately explain everything it does.',
+            'Runes are artifacts connected to those symbols. They can be collected, activated, and carried between runs.',
+            'Up to three Runes can be active at once, allowing different effects to become part of the player\'s strategy.',
+            'Some improve attacks, some affect block or healing, and others change how cards behave during combat.',
+            'I wanted these systems to feel like something the player gradually understands instead of another menu that explains everything immediately.',
+            'There are currently Glyphs and Runes for Embers, Ruin, Passage, Shelter, Burden, Hunger, Decay, Echo, Clarity, Mending, and Fury.',
+          ],
+        },
+        {
+          heading: 'More Ways to Grow',
+          paragraphs: [
+            'Progression during a run has also been expanded.',
+            'Cards can now be upgraded, and there are more opportunities to improve the deck without simply adding another card every time a battle ends.',
+            'Rest stops can give the player time to recover, prepare, or remove something they no longer want in their deck.',
+            'Completing parts of the journey can also lead to training choices such as Vitality, Mastery, and Discipline.',
+            'These choices can improve health, upgrade an existing card, or make the player stronger for the rest of the run.',
+            'I wanted progression to be about improving what the player already has as much as finding something new.',
+          ],
+        },
+        {
+          heading: 'Learning From the First Release',
+          paragraphs: [
+            'Releasing Glyphrune gave me the chance to see people play the game without already knowing how everything worked.',
+            'That showed me problems that were harder to notice while developing it alone.',
+            'Some rewards were not clear enough. Some cards did not feel worth taking. Important combat information could be difficult to read, and parts of the interface made simple decisions harder than they needed to be.',
+            'The feedback was useful because it gave me specific things to work on instead of guessing what players might struggle with.',
+            'I have tried to keep the parts people enjoyed while improving the areas that got in the way.',
+            'There is still much more I want to add, so stay tuned for future content updates!',
+          ],
+        },
+        {
+          heading: 'Still Glyphrune',
+          paragraphs: [
+            'Even with everything that has changed, I have tried to keep Glyphrune focused on the original idea.',
+            'You choose a hero, travel through a dangerous world, build a deck, survive battles, and decide which risks are worth taking.',
+            'Health still matters beyond a single fight. A bad decision can still affect the rest of a run. Taking the strongest-looking reward is not always the best choice.',
+            'The new systems are meant to give those decisions more depth without changing what the game is trying to be.',
+            'Glyphrune is a tabletop RPG built around cards, survival, exploration, and strategy.',
+            'This update is a large step forward for the game, and I am looking forward to continuing to build on it.',
+          ],
+        },
+      ],
+    }),
+    new JournalEntry({
     slug: 'project-astromacy',
     title: 'Project Astromacy',
     date: '2026',
@@ -111,7 +211,7 @@ export const journalEntries = [
       },
     ],
   }),
-  new JournalEntry({
+    new JournalEntry({
     slug: 'project-glyphrune',
     title: 'Project Glyphrune',
     date: '2026',
@@ -203,7 +303,7 @@ export const journalEntries = [
       },
     ],
   }),
-  new JournalEntry({
+    new JournalEntry({
     slug: 'site-open',
     title: 'Site Open',
     date: '2026',

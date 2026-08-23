@@ -12,6 +12,7 @@ export const games = [
         logline: 'Choose the road ahead.',
         description:
           'A solo medieval tabletop battle game about building a deck, facing new regions, and choosing the road ahead.',
+        youtubeVideoId: '2mRaVUd67Sw',
         coverTone: 'Medieval tabletop strategy',
         theme: {
           name: 'Glyphrune',
@@ -34,7 +35,7 @@ export const games = [
           'Earn cards and shape your deck along the way.',
           'Play each battle at your own pace.',
         ],
-        gallery: ['Battle scene'],
+        gallery: ['3D World Map', "Card Rewards", "Battle Scene", "Pick an Ally", "Choices at a Rest Stop", "I Won the Battle!", "3D Route in Red Desert", ],
         primaryAction: 'Visit on Steam',
         secondaryAction: 'Project updates',
         primaryActionTo: 'https://store.steampowered.com/app/4957150/Glyphrune',
