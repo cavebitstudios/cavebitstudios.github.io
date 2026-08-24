@@ -83,12 +83,12 @@ export function StudioPage() {
             </p>
             <div className="studio-story-section__aside">
               <p>
-                If I make the roamer in my Minecraft mod build a house, how would he get the materials? When he gets
+                If I make the character in my Minecraft mod build a house, how would he get the materials? When he gets
                 the materials, how would that affect the land around him? Would he break down a player's house if
                 the player built their house from the needed material?
               </p>
               <p>
-                What happens when the roamer gets hungry? He should hunt. But then he'll hunt all animals. He
+                What happens when the character gets hungry? He should hunt. But then he'll hunt all animals. He
                 should farm instead. How would that work?
               </p>
             </div>
