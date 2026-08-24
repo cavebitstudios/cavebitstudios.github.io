@@ -145,14 +145,6 @@ export function StudioPage() {
               loading="lazy"
               decoding="async"
             />
-            <img
-              className="studio-ollie-section__arrow"
-              src="/ollie-arrow.png"
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-            />
           </div>
         </ScrollReveal>
       </article>
