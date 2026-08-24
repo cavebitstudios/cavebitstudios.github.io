@@ -1,4 +1,3 @@
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { useLayoutEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { AmbientPixels } from '../sections/AmbientPixels'
@@ -32,7 +31,6 @@ function getPageProject(pathname: string): GameProject | undefined {
 
 export function AppLayout() {
   const location = useLocation()
-  const reduceMotion = useReducedMotion()
   const pageProject = getPageProject(location.pathname)
 
   useLayoutEffect(() => {
@@ -60,17 +58,9 @@ export function AppLayout() {
     >
       <AmbientPixels />
       <SiteHeader />
-      <AnimatePresence mode="wait">
-        <motion.main
-          key={location.pathname}
-          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          exit={reduceMotion ? undefined : { opacity: 0, y: -12 }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
-        >
-          <Outlet />
-        </motion.main>
-      </AnimatePresence>
+      <main>
+        <Outlet />
+      </main>
       <SiteFooter />
     </div>
   )
