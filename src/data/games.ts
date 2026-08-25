@@ -38,7 +38,7 @@ export const games = [
         gallery: ['3D World Map', "Card Rewards", "Battle Scene", "Pick an Ally", "Choices at a Rest Stop", "I Won the Battle!", "3D Route in Red Desert", ],
         primaryAction: 'Visit on Steam',
         secondaryAction: 'Project updates',
-        primaryActionTo: 'https://store.steampowered.com/app/4957150/Glyphrune',
+        primaryActionTo: 'https://store.steampowered.com/app/4957150',
         secondaryActionTo: '/updates',
         featured: true,
       }
