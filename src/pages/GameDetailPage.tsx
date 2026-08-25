@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { CheckCircle2, Monitor, Sparkle } from 'lucide-react'
 import { Navigate, useParams } from 'react-router-dom'
 import { CTAButton } from '../components/ui/CTAButton'
@@ -9,10 +10,17 @@ import { YouTubeEmbed } from '../components/ui/YouTubeEmbed'
 import { findGameBySlug } from '../data/games'
 import { getProjectGalleryImages, getProjectTitleImage } from '../data/projectImages'
 import { getProjectThemeStyle } from '../data/projectTheme'
+import { buildCampaignAwareUrl, trackCampaignEvent } from '../lib/campaignTracking'
 
 export function GameDetailPage() {
   const { slug } = useParams()
   const game = findGameBySlug(slug)
+
+  useEffect(() => {
+    if (game?.slug === 'glyphrune') {
+      trackCampaignEvent('glyphrune_view')
+    }
+  }, [game?.slug])
 
   if (!game) {
     return <Navigate to="/games" replace />
@@ -21,6 +29,9 @@ export function GameDetailPage() {
   const titleImage = getProjectTitleImage(game)
   const galleryImages = getProjectGalleryImages(game)
   const themeStyle = getProjectThemeStyle(game)
+  const isGlyphruneSteamAction = game.slug === 'glyphrune' && game.primaryActionTo.startsWith('https://store.steampowered.com/')
+  const primaryActionHref = isGlyphruneSteamAction ? buildCampaignAwareUrl(game.primaryActionTo) : undefined
+  const primaryActionTo = isGlyphruneSteamAction ? undefined : game.primaryActionTo
 
   return (
     <div className="game-detail-page project-theme" style={themeStyle}>
@@ -68,7 +79,13 @@ export function GameDetailPage() {
             </dl>
 
             <div className="game-hero__actions">
-              <CTAButton to={game.primaryActionTo}>{game.actionLabel}</CTAButton>
+              <CTAButton
+                to={primaryActionTo}
+                href={primaryActionHref}
+                onClick={isGlyphruneSteamAction ? () => trackCampaignEvent('steam_click') : undefined}
+              >
+                {game.actionLabel}
+              </CTAButton>
               <CTAButton to={game.secondaryActionTo} variant="secondary">
                 {game.secondaryAction}
               </CTAButton>

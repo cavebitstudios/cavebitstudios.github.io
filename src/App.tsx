@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { AppLayout } from './components/layout/AppLayout'
 import { ScrollToTop } from './components/layout/ScrollToTop'
@@ -10,8 +11,13 @@ import { JournalPage } from './pages/JournalPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { PressPage } from './pages/PressPage'
 import { StudioPage } from './pages/StudioPage'
+import { captureCampaign } from './lib/campaignTracking'
 
 export function App() {
+  useEffect(() => {
+    captureCampaign()
+  }, [])
+
   return (
     <>
       <ScrollToTop />
