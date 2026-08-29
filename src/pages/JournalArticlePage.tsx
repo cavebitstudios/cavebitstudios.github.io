@@ -27,6 +27,14 @@ export function JournalArticlePage() {
           <ArrowLeft aria-hidden="true" size={18} />
           <span>All updates</span>
         </Link>
+        {entry.youtubeVideoId ? (
+          <ScrollReveal className="journal-article-video">
+            <YouTubeEmbed
+              videoId={entry.youtubeVideoId}
+              title={`${entry.title} video`}
+            />
+          </ScrollReveal>
+        ) : null}
         <p className="eyebrow">{entry.category}</p>
         <h1>{entry.title}</h1>
         <p className="journal-article__meta">
@@ -34,15 +42,6 @@ export function JournalArticlePage() {
         </p>
         <p className="journal-article__intro">{entry.excerpt}</p>
       </header>
-
-      {entry.youtubeVideoId ? (
-        <ScrollReveal className="journal-article-video section-shell">
-          <YouTubeEmbed
-            videoId={entry.youtubeVideoId}
-            title={`${entry.title} video`}
-          />
-        </ScrollReveal>
-      ) : null}
 
       {entry.sections.length > 0 ? (
         <article

@@ -3,6 +3,58 @@ import { findGameBySlug } from "./games.ts";
 
 export const journalEntries = [
     new JournalEntry({
+      slug: 'glyphrune-devlog-01',
+      title: 'Rebuilding Glyphrune',
+      date: '2026',
+      category: 'Devlog',
+      focused_project: 'glyphrune',
+      excerpt: 'I released Glyphrune earlier than I should have, so I went back, rebuilt it, and started expanding what comes after the original game.',
+      readTime: '3 min',
+      youtubeVideoId: 'DuyRGh3lIjM',
+      sections: [
+        {
+          heading: 'Releasing Too Early',
+          paragraphs: [
+            'Glyphrune was the first indie game I released, and I released it earlier than I should have.',
+            'The main idea worked, but there were parts of the game that needed more time. Some systems were too limited, some information was harder to read than it should have been, and the world itself did not feel as complete as I wanted it to.',
+            'Instead of leaving it there, I went back and started rebuilding the parts that bothered me most.',
+          ],
+        },
+        {
+          heading: 'Rebuilding the Game',
+          paragraphs: [
+            'A lot of the work started with things that sound small on their own.',
+            'The world map changed. Routes changed. Combat information became clearer. Enemies became more deliberate. Progression, rewards, Allies, Glyphs, Runes, and the way the game moves between different parts of a run all received more work.',
+            'Eventually it stopped feeling like a patch to the first release and started feeling much closer to the game I originally wanted to make.',
+          ],
+        },
+        {
+          heading: 'Then the World Got Bigger',
+          paragraphs: [
+            'While I was fixing the original game, I started thinking about what happens after the player reaches the High Keep.',
+            'Right now, defeating the High Keep is basically the end of the original journey. But once I made the larger world map, that ending became the point where the world opens up instead.',
+            'The original map is only one part of a much larger world, with new continents built around their own enemies, mechanics, rewards, and ways of fighting.',
+          ],
+        },
+        {
+          heading: 'Kaishen',
+          paragraphs: [
+            'The first place I have been building beyond the original map is Kaishen.',
+            'It is a misty warrior continent inspired by old Japanese and samurai settings, with mountain roads, fortresses, assassins, and disciplined fighters.',
+            'It is also where I started pushing combat beyond the original one-on-one battle structure. Multiple enemies can begin appearing in these later areas, which changes how the player has to think about damage, defense, and which threat matters most.',
+          ],
+        },
+        {
+          heading: 'What Comes Next',
+          paragraphs: [
+            'The video above goes through the rebuild and shows some of the new direction for Glyphrune after the first release.',
+            'There is still a lot I want to build, but the goal is clearer now. I want the original journey to feel complete while giving the game somewhere meaningful to go after it.',
+            'Future devlogs will follow that work as the new maps, enemies, cards, and systems come together.',
+          ],
+        },
+      ],
+    }),
+    new JournalEntry({
       slug: 'glyphrune-major-update',
       title: 'Major Update Announcement!',
       date: '2026',

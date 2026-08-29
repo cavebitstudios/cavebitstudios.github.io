@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import { CTAButton } from '../components/ui/CTAButton'
 import { JournalCard } from '../components/ui/JournalCard'
+import { JournalVideoCard } from '../components/ui/JournalVideoCard'
 import { ProjectCard } from '../components/ui/ProjectCard'
 import { ScrollReveal } from '../components/ui/ScrollReveal'
 import { SectionHeader } from '../components/ui/SectionHeader'
@@ -16,6 +17,8 @@ export function HomePage() {
   const featuredImage = titleImage ?? galleryImages[0]
   const otherGames = games.filter((game) => game.slug !== focusedGame.slug)
   const themeStyle = getProjectThemeStyle(focusedGame)
+  const videoEntries = journalEntries.filter((entry) => Boolean(entry.youtubeVideoId)).slice(0, 3)
+  const standardEntries = journalEntries.filter((entry) => !entry.youtubeVideoId).slice(0, 3)
 
   return (
     <>
@@ -124,6 +127,17 @@ export function HomePage() {
       </ScrollReveal>
 
       <ScrollReveal className="section-shell home-updates-section">
+        {videoEntries.length > 0 ? (
+          <div className="home-video-updates">
+            <SectionHeader eyebrow="Devlogs" title="Latest Videos on YouTube" />
+            <div className="journal-video-grid">
+              {videoEntries.map((entry) => (
+                <JournalVideoCard key={entry.slug} entry={entry} />
+              ))}
+            </div>
+          </div>
+        ) : null}
+
         <div className="section-heading-row">
           <SectionHeader eyebrow="From the studio" title="Latest updates" />
           <CTAButton to="/updates" variant="ghost">
@@ -131,7 +145,7 @@ export function HomePage() {
           </CTAButton>
         </div>
         <div className="journal-grid">
-          {journalEntries.slice(0, 3).map((entry) => (
+          {standardEntries.map((entry) => (
             <JournalCard key={entry.slug} entry={entry} />
           ))}
         </div>

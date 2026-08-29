@@ -3131,6 +3131,10 @@ main > *:last-child:not(.game-detail-page) {
   padding-top: clamp(78px, 8vw, 106px);
 }
 
+.home-video-updates {
+  margin-bottom: clamp(64px, 8vw, 104px);
+}
+
 .section-heading-row {
   display: flex;
   align-items: end;
@@ -4129,6 +4133,10 @@ main > *:last-child:not(.game-detail-page) {
   font-size: 0.92rem;
   font-weight: 700;
   transition: color 180ms ease;
+}
+
+.journal-article-video {
+  margin-bottom: clamp(44px, 6vw, 72px);
 }
 
 .journal-article-hero h1 {
@@ -5674,5 +5682,173 @@ main > *:last-child:not(.game-detail-page) {
   .project-slideshow__thumb {
     flex-basis: 132px;
     min-width: 132px;
+  }
+}
+
+/* Video journal entries */
+.journal-page__content {
+  display: grid;
+  gap: clamp(54px, 7vw, 88px);
+}
+
+.journal-video-section {
+  display: grid;
+  gap: clamp(22px, 3vw, 30px);
+}
+
+.journal-video-section h2 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.04;
+}
+
+.journal-video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.journal-video-card {
+  display: grid;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  color: inherit;
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.journal-video-card.project-theme {
+  border-color: var(--project-line, var(--line));
+  background:
+    radial-gradient(circle at 18% -8%, var(--project-glow, rgba(124, 91, 190, 0.2)), transparent 46%),
+    linear-gradient(180deg, color-mix(in srgb, var(--project-accent-dark, #120a25) 22%, rgba(255, 255, 255, 0.075)), rgba(255, 255, 255, 0.035));
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.28),
+    0 0 34px color-mix(in srgb, var(--project-accent, #7cf7ff) 8%, transparent);
+}
+
+.journal-video-card__media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #05030b;
+}
+
+.journal-video-card__media::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(180deg, transparent 52%, rgba(5, 3, 12, 0.48));
+}
+
+.journal-video-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 320ms ease;
+}
+
+.journal-video-card__play {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 1;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--bit) 52%, rgba(255, 255, 255, 0.18));
+  border-radius: 50%;
+  color: #05030b;
+  background: var(--bit);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.34);
+}
+
+.journal-video-card__body {
+  display: grid;
+  gap: 13px;
+  padding: 24px;
+}
+
+.journal-video-card__meta {
+  color: var(--subtle);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.journal-video-card__title {
+  color: var(--text);
+  font-size: clamp(1.2rem, 2.1vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+}
+
+.journal-video-card__footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+  color: var(--bit);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.journal-video-card__footer svg {
+  transition: transform 180ms ease;
+}
+
+.journal-video-card:focus-visible {
+  border-color: var(--line-strong);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .journal-video-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--line-strong);
+    box-shadow: 0 30px 82px rgba(0, 0, 0, 0.28);
+  }
+
+  .journal-video-card:hover .journal-video-card__media img {
+    transform: scale(1.018);
+  }
+
+  .journal-video-card:hover .journal-video-card__footer svg {
+    transform: translateX(4px);
+  }
+}
+
+@media (max-width: 900px) {
+  .journal-video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .journal-page__content {
+    gap: 46px;
+  }
+
+  .journal-video-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .journal-video-card__body {
+    padding: 22px;
+  }
+
+  .journal-video-card__play {
+    left: 14px;
+    bottom: 14px;
+    width: 42px;
+    height: 42px;
   }
 }
